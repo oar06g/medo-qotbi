@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisan Coffee Roasters</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .font-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .font-body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(199, 144, 96, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(199, 144, 96, 0.6); }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .animate-scale-in {
+      animation: scaleIn 0.6s ease-out forwards;
+    }
+    
+    .animate-slide-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+    .delay-500 { animation-delay: 0.5s; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #C79060 0%, #E8C4A0 50%, #C79060 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-12px) scale(1.02);
+    }
+    
+    .btn-glow:hover {
+      animation: pulse-glow 1.5s ease-in-out infinite;
+    }
+    
+    .grain-overlay {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-body">
+  <div class="app-wrapper w-full h-full overflow-auto" style="background-color: #1A1714;"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4" style="background: linear-gradient(180deg, rgba(26,23,20,0.95) 0%, rgba(26,23,20,0) 100%);">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+     <div class="flex items-center gap-3 animate-fade-in-up">
+      <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background-color: #C79060;">
+       <svg class="w-6 h-6" viewbox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" /> <line x1="6" y1="1" x2="6" y2="4" /><line x1="10" y1="1" x2="10" y2="4" /><line x1="14" y1="1" x2="14" y2="4" />
+       </svg>
+      </div><span class="font-display text-xl font-semibold" style="color: #F5F0EB;">ROAST &amp; CO</span>
+     </div>
+     <div class="hidden md:flex items-center gap-8 animate-fade-in-up delay-100"><a href="#" class="text-sm font-medium transition-colors hover:opacity-80" style="color: #C79060;">Home</a> <a href="#" class="text-sm font-medium transition-colors hover:opacity-80" style="color: #A09080;">Origins</a> <a href="#" class="text-sm font-medium transition-colors hover:opacity-80" style="color: #A09080;">Shop</a> <a href="#" class="text-sm font-medium transition-colors hover:opacity-80" style="color: #A09080;">About</a>
+     </div><button class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all animate-fade-in-up delay-200 btn-glow" style="background-color: #C79060; color: #1A1714;"> Order Now </button>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="relative min-h-screen flex items-center px-6 pt-20 overflow-hidden"><!-- Background Elements -->
+    <div class="absolute inset-0 grain-overlay pointer-events-none"></div>
+    <div class="absolute top-20 right-10 w-96 h-96 rounded-full opacity-20 blur-3xl" style="background-color: #C79060;"></div>
+    <div class="absolute bottom-20 left-10 w-64 h-64 rounded-full opacity-10 blur-3xl" style="background-color: #C79060;"></div>
+    <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center"><!-- Left Content -->
+     <div class="space-y-8 z-10">
+      <div class="space-y-2 animate-slide-left" style="opacity: 0;"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase" style="background-color: rgba(199, 144, 96, 0.2); color: #C79060;"> Artisan Roasted </span>
+      </div>
+      <h1 id="hero-title" class="font-display text-5xl md:text-7xl font-bold leading-tight animate-slide-left delay-100" style="color: #F5F0EB; opacity: 0;">Crafted for the <span class="gradient-text">Perfect</span> Morning</h1>
+      <p id="hero-subtitle" class="text-lg md:text-xl leading-relaxed max-w-lg animate-slide-left delay-200" style="color: #A09080; opacity: 0;">Single-origin beans, hand-selected and roasted to perfection. Experience coffee as it was meant to be.</p>
+      <div class="flex flex-wrap gap-4 animate-slide-left delay-300" style="opacity: 0;"><button id="cta-button" class="group px-8 py-4 rounded-full text-base font-semibold transition-all btn-glow flex items-center gap-2" style="background-color: #C79060; color: #1A1714;"> <span>Explore Blends</span>
+        <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></button> <button class="px-8 py-4 rounded-full text-base font-semibold transition-all border-2 hover:bg-white hover:bg-opacity-5" style="border-color: #A09080; color: #F5F0EB;"> Watch Story </button>
+      </div><!-- Stats -->
+      <div class="flex gap-12 pt-8 animate-slide-left delay-400" style="opacity: 0;">
+       <div>
+        <div class="font-display text-3xl font-bold" style="color: #C79060;">
+         15+
+        </div>
+        <div class="text-sm" style="color: #A09080;">
+         Origins
+        </div>
+       </div>
+       <div>
+        <div class="font-display text-3xl font-bold" style="color: #C79060;">
+         50K+
+        </div>
+        <div class="text-sm" style="color: #A09080;">
+         Happy Customers
+        </div>
+       </div>
+       <div>
+        <div class="font-display text-3xl font-bold" style="color: #C79060;">
+         4.9
+        </div>
+        <div class="text-sm" style="color: #A09080;">
+         Rating
+        </div>
+       </div>
+      </div>
+     </div><!-- Right Content - Coffee Cup Illustration -->
+     <div class="relative flex items-center justify-center animate-scale-in delay-300" style="opacity: 0;">
+      <div class="relative animate-float"><!-- Glow Effect -->
+       <div class="absolute inset-0 rounded-full blur-3xl opacity-40" style="background-color: #C79060; transform: scale(0.8);"></div><!-- Coffee Cup SVG -->
+       <svg class="w-72 h-72 md:w-96 md:h-96 relative z-10" viewbox="0 0 200 200"><!-- Cup Body --> <ellipse cx="100" cy="160" rx="60" ry="15" fill="#2A2520" /> <path d="M40 70 Q35 120 50 155 Q70 175 100 175 Q130 175 150 155 Q165 120 160 70 Z" fill="#3D3530" /> <path d="M40 70 Q35 120 50 155 Q70 175 100 175 Q130 175 150 155 Q165 120 160 70 Z" fill="url(#cupGradient)" /> <!-- Cup Rim --> <ellipse cx="100" cy="70" rx="60" ry="15" fill="#4A4035" /> <!-- Coffee Surface --> <ellipse cx="100" cy="72" rx="55" ry="12" fill="#2C1810" /> <ellipse cx="100" cy="71" rx="50" ry="10" fill="#3D2515" /> <!-- Steam --> <path d="M75 50 Q70 35 80 20" stroke="#A09080" stroke-width="2" fill="none" opacity="0.6">
+         <animate attributename="d" values="M75 50 Q70 35 80 20;M75 50 Q80 30 70 15;M75 50 Q70 35 80 20" dur="3s" repeatcount="indefinite" />
+        </path> <path d="M100 45 Q95 25 105 10" stroke="#A09080" stroke-width="2" fill="none" opacity="0.7">
+         <animate attributename="d" values="M100 45 Q95 25 105 10;M100 45 Q105 20 95 5;M100 45 Q95 25 105 10" dur="2.5s" repeatcount="indefinite" />
+        </path> <path d="M125 50 Q130 35 120 20" stroke="#A09080" stroke-width="2" fill="none" opacity="0.6">
+         <animate attributename="d" values="M125 50 Q130 35 120 20;M125 50 Q120 30 130 15;M125 50 Q130 35 120 20" dur="3.5s" repeatcount="indefinite" />
+        </path> <!-- Handle --> <path d="M160 85 Q185 90 185 115 Q185 140 160 145" stroke="#3D3530" stroke-width="12" fill="none" stroke-linecap="round" /> <path d="M160 90 Q180 95 180 115 Q180 135 160 140" stroke="#4A4035" stroke-width="6" fill="none" stroke-linecap="round" /> <!-- Decorative Ring --> <ellipse cx="100" cy="120" rx="45" ry="8" fill="none" stroke="#C79060" stroke-width="1" opacity="0.4" /> <defs>
+         <lineargradient id="cupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4A4035" />
+          <stop offset="50%" stop-color="#3D3530" />
+          <stop offset="100%" stop-color="#2A2520" />
+         </lineargradient>
+        </defs>
+       </svg><!-- Floating Coffee Beans -->
+       <div class="absolute -top-4 -left-8 text-4xl animate-float" style="animation-delay: -1s;">
+        ☕
+       </div>
+       <div class="absolute top-1/4 -right-12 text-2xl animate-float" style="animation-delay: -2s;">
+        🫘
+       </div>
+       <div class="absolute bottom-1/4 -left-16 text-3xl animate-float" style="animation-delay: -3s;">
+        🫘
+       </div>
+      </div>
+     </div>
+    </div><!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in-up delay-500" style="opacity: 0;"><span class="text-xs tracking-widest uppercase" style="color: #A09080;">Scroll</span>
+     <div class="w-6 h-10 rounded-full border-2 flex justify-center pt-2" style="border-color: #A09080;">
+      <div class="w-1 h-2 rounded-full animate-bounce" style="background-color: #C79060;"></div>
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section class="py-24 px-6 relative">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16"><span class="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase mb-4" style="background-color: rgba(199, 144, 96, 0.2); color: #C79060;"> Why Choose Us </span>
+      <h2 class="font-display text-4xl md:text-5xl font-bold" style="color: #F5F0EB;">The Roast &amp; Co Difference</h2>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8"><!-- Feature 1 -->
+      <div class="card-hover p-8 rounded-3xl relative overflow-hidden group" style="background-color: #252220;">
+       <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(199,144,96,0.1) 0%, transparent 50%);"></div>
+       <div class="relative z-10">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(199, 144, 96, 0.2);">
+         <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#C79060" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+         </svg>
+        </div>
+        <h3 id="feature-1-title" class="font-display text-2xl font-semibold mb-3" style="color: #F5F0EB;">Single Origin</h3>
+        <p class="leading-relaxed" style="color: #A09080;">Direct partnerships with farmers across 15+ countries ensure traceability and exceptional quality in every bean.</p>
+       </div>
+      </div><!-- Feature 2 -->
+      <div class="card-hover p-8 rounded-3xl relative overflow-hidden group" style="background-color: #252220;">
+       <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(199,144,96,0.1) 0%, transparent 50%);"></div>
+       <div class="relative z-10">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(199, 144, 96, 0.2);">
+         <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#C79060" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /> <path d="M9 12l2 2 4-4" />
+         </svg>
+        </div>
+        <h3 id="feature-2-title" class="font-display text-2xl font-semibold mb-3" style="color: #F5F0EB;">Fresh Roasted</h3>
+        <p class="leading-relaxed" style="color: #A09080;">Roasted within 48 hours of shipping, our beans arrive at peak freshness for the ultimate flavor experience.</p>
+       </div>
+      </div><!-- Feature 3 -->
+      <div class="card-hover p-8 rounded-3xl relative overflow-hidden group" style="background-color: #252220;">
+       <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style="background: linear-gradient(135deg, rgba(199,144,96,0.1) 0%, transparent 50%);"></div>
+       <div class="relative z-10">
+        <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-6" style="background-color: rgba(199, 144, 96, 0.2);">
+         <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" stroke="#C79060" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+         </svg>
+        </div>
+        <h3 id="feature-3-title" class="font-display text-2xl font-semibold mb-3" style="color: #F5F0EB;">Sustainably Sourced</h3>
+        <p class="leading-relaxed" style="color: #A09080;">Every purchase supports fair trade practices and environmental initiatives in coffee-growing communities.</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0" style="background: linear-gradient(135deg, #2A2520 0%, #1A1714 100%);"></div>
+    <div class="absolute top-0 right-0 w-96 h-96 rounded-full opacity-20 blur-3xl" style="background-color: #C79060;"></div>
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+     <h2 class="font-display text-4xl md:text-6xl font-bold mb-6" style="color: #F5F0EB;">Ready to Elevate Your <span class="gradient-text">Coffee Ritual</span>?</h2>
+     <p class="text-lg mb-10 max-w-2xl mx-auto" style="color: #A09080;">Join thousands of coffee lovers who've discovered the perfect cup. Subscribe and save 15% on your first order.</p>
+     <form class="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto" onsubmit="event.preventDefault(); this.querySelector('button').textContent = 'Subscribed! ✓';"><input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full text-base outline-none transition-all focus:ring-2" style="background-color: #252220; color: #F5F0EB; border: 1px solid #3D3530;" required> <button type="submit" class="px-8 py-4 rounded-full text-base font-semibold transition-all btn-glow whitespace-nowrap" style="background-color: #C79060; color: #1A1714;"> Get Started </button>
+     </form>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6 border-t" style="border-color: #252220;">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+     <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background-color: #C79060;">
+       <svg class="w-4 h-4" viewbox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+       </svg>
+      </div><span class="font-display text-lg font-semibold" style="color: #F5F0EB;">ROAST &amp; CO</span>
+     </div>
+     <div class="flex items-center gap-6"><a href="#" class="text-sm transition-colors hover:opacity-80" style="color: #A09080;">Privacy</a> <a href="#" class="text-sm transition-colors hover:opacity-80" style="color: #A09080;">Terms</a> <a href="#" class="text-sm transition-colors hover:opacity-80" style="color: #A09080;">Contact</a>
+     </div>
+     <p class="text-sm" style="color: #A09080;">© 2024 Roast &amp; Co. All rights reserved.</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_title: 'Crafted for the <span class="gradient-text">Perfect</span> Morning',
+      hero_subtitle: 'Single-origin beans, hand-selected and roasted to perfection. Experience coffee as it was meant to be.',
+      cta_text: 'Explore Blends',
+      feature_1_title: 'Single Origin',
+      feature_2_title: 'Fresh Roasted',
+      feature_3_title: 'Sustainably Sourced',
+      background_color: '#1A1714',
+      surface_color: '#252220',
+      text_color: '#F5F0EB',
+      primary_action_color: '#C79060',
+      secondary_text_color: '#A09080',
+      font_family: 'Playfair Display',
+      font_size: 16
+    };
+    
+    async function onConfigChange(config) {
+      // Update text content
+      document.getElementById('hero-title').innerHTML = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('cta-button').querySelector('span').textContent = config.cta_text || defaultConfig.cta_text;
+      document.getElementById('feature-1-title').textContent = config.feature_1_title || defaultConfig.feature_1_title;
+      document.getElementById('feature-2-title').textContent = config.feature_2_title || defaultConfig.feature_2_title;
+      document.getElementById('feature-3-title').textContent = config.feature_3_title || defaultConfig.feature_3_title;
+      
+      // Update colors
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryTextColor = config.secondary_text_color || defaultConfig.secondary_text_color;
+      
+      document.querySelector('.app-wrapper').style.backgroundColor = bgColor;
+      
+      document.querySelectorAll('[style*="color: #F5F0EB"]').forEach(el => {
+        el.style.color = textColor;
+      });
+      
+      document.querySelectorAll('[style*="background-color: #C79060"]').forEach(el => {
+        el.style.backgroundColor = primaryColor;
+      });
+      
+      document.querySelectorAll('[style*="color: #C79060"]').forEach(el => {
+        el.style.color = primaryColor;
+      });
+      
+      document.querySelectorAll('[style*="color: #A09080"]').forEach(el => {
+        el.style.color = secondaryTextColor;
+      });
+      
+      document.querySelectorAll('[style*="background-color: #252220"]').forEach(el => {
+        el.style.backgroundColor = surfaceColor;
+      });
+      
+      // Update fonts
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      document.querySelectorAll('.font-display').forEach(el => {
+        el.style.fontFamily = `${customFont}, Georgia, serif`;
+      });
+      
+      document.querySelectorAll('h1').forEach(el => {
+        el.style.fontSize = `${baseSize * 3.5}px`;
+      });
+      
+      document.querySelectorAll('h2').forEach(el => {
+        el.style.fontSize = `${baseSize * 2.5}px`;
+      });
+      
+      document.querySelectorAll('h3').forEach(el => {
+        el.style.fontSize = `${baseSize * 1.5}px`;
+      });
+    }
+    
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => { config.surface_color = value; window.elementSdk.setConfig({ surface_color: value }); }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => { config.primary_action_color = value; window.elementSdk.setConfig({ primary_action_color: value }); }
+          },
+          {
+            get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+            set: (value) => { config.secondary_text_color = value; window.elementSdk.setConfig({ secondary_text_color: value }); }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => { config.font_family = value; window.elementSdk.setConfig({ font_family: value }); }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => { config.font_size = value; window.elementSdk.setConfig({ font_size: value }); }
+        }
+      };
+    }
+    
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+        ['cta_text', config.cta_text || defaultConfig.cta_text],
+        ['feature_1_title', config.feature_1_title || defaultConfig.feature_1_title],
+        ['feature_2_title', config.feature_2_title || defaultConfig.feature_2_title],
+        ['feature_3_title', config.feature_3_title || defaultConfig.feature_3_title]
+      ]);
+    }
+    
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c59e98c051deff1',t:'MTc2OTcwMjExMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
